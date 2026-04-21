@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asta Dolan - Temukan Ketenangan Anda</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+    .card-img-container { height: 320px; }
+    .card-img-long { height: calc(640px + 1.5rem); } 
+    #mobile-menu { transition: all 0.3s ease-in-out; }
+    select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+    .testimonial-stack img:not(:first-child) { margin-left: -1rem; }
+    .faq-content { transition: max-height 0.3s ease-out, opacity 0.3s ease-out; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<nav class="w-full bg-white shadow-sm sticky top-0 z-[100]">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+    <div class="flex items-center space-x-3">
+      <img src="images/logo.png" alt="Logo" class="h-8 md:h-9"> 
+      <span class="font-black text-xs md:text-sm leading-none text-black tracking-tighter uppercase">ASTA <br> DOLAN</span>
+    </div>
+
+    <ul class="hidden md:flex space-x-8 text-[11px] font-medium text-gray-400 uppercase tracking-widest">
+      <li><a href="#" class="text-black">Beranda</a></li>
+      <li><a href="#" class="hover:text-black transition">Wisata</a></li>
+      <li><a href="#" class="hover:text-black transition">Cafe</a></li>
+      <li><a href="#" class="hover:text-black transition">Kontak</a></li>
+    </ul>
+
+    <div class="flex items-center space-x-4">
+      <div class="font-bold text-xs px-3 py-1.5 rounded-lg border border-gray-100 uppercase">ID</div>
+      <button id="menu-btn" class="md:hidden text-black focus:outline-none p-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-6 shadow-xl">
+    <ul class="flex flex-col space-y-5 text-sm font-bold text-gray-500 uppercase tracking-widest">
+      <li><a href="#" class="block hover:text-black">Beranda</a></li>
+      <li><a href="#" class="block hover:text-black">Wisata</a></li>
+      <li><a href="#" class="block hover:text-black">Cafe</a></li>
+      <li><a href="#" class="block hover:text-black">Kontak</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="relative w-full min-h-[90vh] flex flex-col items-center justify-center pt-10 pb-20 text-white px-6">
+    <div class="absolute inset-0 -z-10">
+        <img src="images/Backgorund.png" class="w-full h-full object-cover" alt="Hero">
+        <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+
+    <div class="w-full max-w-5xl text-center mb-12">
+        <h1 class="text-3xl md:text-5xl font-medium mb-6 leading-tight tracking-tight">
+            Temukan Momen Tenang di Destinasi <br class="hidden md:block"> yang Diciptakan untuk Anda
+        </h1>
+        <p class="text-sm md:text-base opacity-90 font-light max-w-2xl mx-auto leading-relaxed">
+            Nikmati pengalaman perjalanan yang menghadirkan ketenangan sejati. Jelajahi destinasi pilihan dengan pesona alami yang menyambut Anda.
+        </p>
+    </div>
+
+    <div class="w-full max-w-5xl">
+        <div class="bg-white rounded-[2.5rem] p-6 md:p-10 shadow-2xl text-gray-800 border border-gray-50">
+            <div class="flex flex-col space-y-8">
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                  <div class="relative grow w-full">
+                      <span class="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-400">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                      </span>
+                      <input type="text" id="search-input" placeholder="Cari destinasi..." class="w-full bg-gray-50 border border-gray-100 rounded-2xl py-4 px-14 focus:ring-2 focus:ring-zinc-100 outline-none transition-all text-sm font-medium">
+                  </div>
+                  <button id="btn-cari-destinasi" class="w-full md:w-auto bg-zinc-900 hover:bg-black text-white py-4 px-10 rounded-2xl font-bold transition-all active:scale-95 shadow-lg whitespace-nowrap text-sm">
+                      Cari Destinasi
+                  </button>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 text-left">
+                  <div class="flex flex-col space-y-2">
+                      <label class="text-[10px] uppercase tracking-widest font-black text-gray-400 ml-1">Kategori</label>
+                      <div class="relative border-b border-gray-100 pb-2">
+                          <select id="select-kategori" class="w-full bg-transparent py-1 px-1 text-sm font-bold text-gray-700 outline-none">
+                              <option value="">Semua kategori</option>
+                              <option value="wisata">Wisata</option>
+                              <option value="cafe">Cafe</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                      <label class="text-[10px] uppercase tracking-widest font-black text-gray-400 ml-1">Kecamatan</label>
+                      <div class="relative border-b border-gray-100 pb-2">
+                          <select id="select-kecamatan" class="w-full bg-transparent py-1 px-1 text-sm font-bold text-gray-700 outline-none">
+                              <option value="">Pilih kecamatan</option>
+                              <option value="klojen">Klojen</option>
+                              <option value="bantur">Bantur</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="flex flex-col space-y-2">
+                      <label class="text-[10px] uppercase tracking-widest font-black text-gray-400 ml-1">Rating</label>
+                      <div class="relative border-b border-gray-100 pb-2">
+                          <select id="select-rating" class="w-full bg-transparent py-1 px-1 text-sm font-bold text-gray-700 outline-none">
+                              <option value="">Pilih rating</option>
+                              <option value="1-2">1-2</option>
+                              <option value="2-3">2-3</option>
+                              <option value="3-4">3-4</option>
+                              <option value="4-5">4-5</option>
+                          </select>
+                      </div>
+                  </div>
+              </div> 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 max-w-6xl mx-auto px-6">
+  <div class="flex justify-between items-end mb-10">
+    <h2 class="text-2xl font-bold text-gray-900 leading-tight">Destinasi Wisata Populer</h2>
+    <a href="#" class="text-xs font-bold text-gray-400 hover:text-black uppercase tracking-widest transition-colors">Lihat semua destinasi›</a>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+    <div class="relative overflow-hidden rounded-[2.5rem] card-img-container group shadow-md">
+      <img src="images/Destinasi1.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+      <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl flex justify-between items-center">
+        <span class="font-bold text-sm text-gray-800">Paralayang</span>
+        <div class="bg-gray-100 px-2 py-1 rounded-lg text-xs font-bold text-gray-700">⭐ 4.5</div>
+      </div>
+    </div>
+    <div class="relative overflow-hidden rounded-[2.5rem] card-img-container group shadow-md">
+        <img src="images/Destinasi2.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl flex justify-between items-center font-bold text-sm">
+          <span>Kampung Warna</span>
+          <div class="bg-gray-100 px-2 py-1 rounded-lg text-xs">⭐ 5.0</div>
+        </div>
+    </div>
+    <div class="relative overflow-hidden rounded-[2.5rem] card-img-container group shadow-md">
+      <a href="destinasidetail.html">
+        <img src="images/Destinasi3.png" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent"></div>
+        <div class="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl flex justify-between items-center font-bold text-sm">
+          <span>Pantai Balekambang</span>
+          <div class="bg-gray-100 px-2 py-1 rounded-lg text-xs">⭐ 4.9</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="py-10 bg-black text-white">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="flex justify-between items-end mb-8">
+      <h2 class="text-xl md:text-2xl font-bold">Coffeeshop Populer</h2>
+      <a href="#" class="text-[10px] font-bold text-gray-500 uppercase tracking-widest hover:text-white transition-colors">Lihat semua destinasi›</a>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      
+      <div class="lg:col-span-1">
+        <div class="relative overflow-hidden rounded-[2.5rem] h-64 md:h-80 lg:h-[540px] border border-zinc-900 group">
+          <img src="images/NikmatiSuasana.png" class="w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent"></div>
+          <div class="absolute bottom-8 left-8 right-8">
+            <h3 class="text-xl md:text-2xl font-bold leading-tight">Nikmati Suasana Malang Dengan Tempat Yang Nyaman</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+          
+          <div class="relative overflow-hidden rounded-[2rem] h-60 md:h-64 lg:h-[260px] border border-zinc-900 group">
+            <img src="images/KopiStudio.png" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl flex justify-between items-center text-[11px] font-bold text-black text-sm">
+              <span>Kopistudio24</span><span>⭐ 4.9</span>
+            </div>
+          </div>
+          
+          <div class="relative overflow-hidden rounded-[2rem] h-60 md:h-64 lg:h-[260px] border border-zinc-900 group">
+            <img src="images/ZummaCoffe.png" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl flex justify-between items-center text-[11px] font-bold text-black text-sm">
+              <span>Zumma Coffe</span><span>⭐ 5.0</span>
+            </div>
+          </div>
+          
+          <div class="relative overflow-hidden rounded-[2rem] h-60 md:h-64 lg:h-[260px] border border-zinc-900 group">
+            <img src="images/DistrikCoffe.png" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl flex justify-between items-center text-[11px] font-bold text-black text-sm">
+              <span>Distrik Coffe</span><span>⭐ 4.9</span>
+            </div>
+          </div>
+          
+          <div class="relative overflow-hidden rounded-[2rem] h-60 md:h-64 lg:h-[260px] border border-zinc-900 group">
+            <img src="images/HindiaKoffie.png" class="w-full h-full object-cover opacity-70 group-hover:scale-110 transition">
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-2xl flex justify-between items-center text-[11px] font-bold text-black text-sm">
+              <span>Hindia Koffie</span><span>⭐ 4.9</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      
+      <div class="max-w-sm">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4 leading-tight">Info Penting <br> Buat Kamu</h2>
+        <p class="text-gray-400 text-sm leading-relaxed">
+          Temukan jawaban dari pertanyaan umum seputar wisata dan cafe di Malang, biar perjalananmu makin mudah, nyaman, dan seru.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="border border-gray-100 rounded-2xl shadow-sm overflow-hidden bg-white">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left transition-all hover:bg-gray-50/50">
+            <span class="font-bold text-sm text-gray-800">Tempat wisata apa yang paling wajib dikunjungi?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 pb-5 hidden">
+            <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-50 pt-4">
+              Bromo, Jatim Park, Museum Angkut, dan pantai-pantai cantik di Malang Selatan seperti Balekambang adalah destinasi yang tidak boleh dilewatkan.
+            </p>
+          </div>
+        </div>
+
+        <div class="border border-gray-100 rounded-2xl shadow-sm overflow-hidden bg-white">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left transition-all hover:bg-gray-50/50">
+            <span class="font-bold text-sm text-gray-800">Kapan waktu terbaik untuk berkunjung ke Malang?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 pb-5 hidden">
+            <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-50 pt-4">
+              Mei hingga September adalah waktu terbaik karena cuaca cerah (musim kemarau), sangat cocok untuk aktivitas luar ruangan dan eksplorasi alam.
+            </p>
+          </div>
+        </div>
+
+        <div class="border border-gray-100 rounded-2xl shadow-sm overflow-hidden bg-white">
+          <button onclick="toggleFaq(this)" class="w-full flex justify-between items-center p-5 text-left transition-all hover:bg-gray-50/50">
+            <span class="font-bold text-sm text-gray-800">Apakah cafe di Malang ramah untuk bekerja (WFC)?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="faq-content px-5 pb-5 hidden">
+            <p class="text-xs text-gray-400 leading-relaxed border-t border-gray-50 pt-4">
+              Sangat ramah! Banyak cafe menyediakan Wi-Fi kencang, banyak colokan listrik, dan suasana tenang yang cocok untuk produktivitas Anda.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-gray-100">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-2xl md:text-3xl font-semibold text-[#1F1F1F] leading-tight mb-16 px-4">
+      “Berkat rekomendasi dari website ini, liburan saya di Malang jauh lebih terarah. Semua tempat yang disarankan benar-benar worth it dikunjungi!”
+    </h2>
+
+    <div class="flex flex-col items-center">
+      <div class="flex items-end justify-center gap-6 mb-8">
+        <img src="images/Smith.png" alt="Traveler" class="w-32 h-40 md:w-40 md:h-40 object-cover rounded-[2rem] opacity-70">
+        
+        <div class="flex flex-col items-center">
+          <img src="images/Zoe.png" alt="Zoe Clara" class="w-40 h-52 md:w-48 md:h-48 object-cover rounded-[2.5rem] border-4 border-white shadow-xl mb-4">
+          <p class="font-bold text-gray-900 text-lg">Zoe Clara</p>
+          <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em] font-bold">Traveler Influencer</p>
+        </div>
+
+        <img src="images/Will.png" alt="Traveler" class="w-32 h-40 md:w-40 md:h-40 object-cover rounded-[2rem] opacity-70">
+      </div>  
+    </div>
+  </div>
+</section>
+
+<section class="py-12 px-6">
+  <div class="max-w-5xl mx-auto relative rounded-[2.5rem] overflow-hidden min-h-[320px] md:min-h-[380px] flex items-center shadow-lg">
+    
+    <div class="absolute inset-0 z-0">
+      <img src="images/TemukanTempatSeruMu.png" alt="Background" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 text-white px-8 md:px-16 w-full">
+      <div class="max-w-2xl">
+        <h2 class="text-xl md:text-3xl lg:text-4xl font-medium mb-3 tracking-tight whitespace-nowrap">
+          Ayo Temukan Tempat Serumu!
+        </h2>
+        
+        <p class="text-gray-300 text-xs md:text-sm mb-8 leading-relaxed opacity-80 max-w-[300px] md:max-w-[420px]">
+          Temukan jawaban dari pertanyaan umum seputar wisata dan 
+          cafe di Malang, biar perjalananmu makin mudah dan seru.
+        </p>
+
+        <button class="bg-white text-black py-3 px-6 rounded-xl font-bold hover:bg-gray-100 transition-all active:scale-95 flex items-center gap-3 group">
+          <div class="bg-black text-white p-1.5 rounded-md group-hover:bg-gray-800 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+          </div>
+          <span class="uppercase tracking-widest text-[10px] md:text-xs">Eksplor Sekarang</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-white pt-24 pb-12 border-t border-gray-100">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row justify-between gap-16 mb-20">
+      
+      <div class="max-w-sm">
+        <div class="flex items-center space-x-3 mb-6">
+          <h3 class="text-lg font-bold text-gray-900 group-hover:text-black transition">NAME BRAND</h3>
+        </div>
+        <p class="text-gray-400 text-sm leading-relaxed mb-8">
+          Sesuaikan perjalanan Anda dengan berbagai paket wisata yang praktis dan fleksibel.
+        </p>
+        
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.31-2.31a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-black hover:text-white transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-12 text-sm">
+        <div class="flex flex-col space-y-4">
+          <a href="#" class="text-gray-400 hover:text-black transition">Beranda</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Wisata</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Cafe</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Contact</a>
+        </div>
+        <div class="flex flex-col space-y-4">
+          <a href="#" class="text-gray-400 hover:text-black transition">Privacy Policy</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Testimonial</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Terms</a>
+          <a href="#" class="text-gray-400 hover:text-black transition">Help</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center pt-10 border-t border-gray-50 text-[10px] text-gray-300 font-bold uppercase tracking-widest">
+      &copy; copyright Brand 2025 All Rights Reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu Toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // FAQ Toggle Function
+  function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('svg');
+    
+    // Toggle class hidden
+    content.classList.toggle('hidden');
+    
+    // Rotasi icon panah
+    if (content.classList.contains('hidden')) {
+      icon.classList.remove('rotate-180');
+    } else {
+      icon.classList.add('rotate-180');
+    }
+  }
+
+    // Search bar
+// Logika Redirect ke Halaman Destinasi
+const btnCari = document.getElementById('btn-cari-destinasi');
+
+if (btnCari) {
+    btnCari.addEventListener('click', () => {
+        // Mengambil nilai dari elemen-elemen input/select
+        const keyword = document.getElementById('search-input').value;
+        const kategori = document.getElementById('select-kategori').value;
+        const kecamatan = document.getElementById('select-kecamatan').value;
+        const rating = document.getElementById('select-rating').value;
+
+        // Membangun URL tujuan dengan Parameter (Query Strings)
+        // Hasilnya: destinasi.html?kategori=cafe&kecamatan=klojen&rating=4-5
+        const params = new URLSearchParams({
+            q: keyword,
+            cat: kategori,
+            loc: kecamatan,
+            rate: rating
+        });
+
+        // Pindah ke halaman destinasi.html
+        window.location.href = `destinasi.html?${params.toString()}`;
+    });
+}
+</script>
+
+</body>
+</html>
